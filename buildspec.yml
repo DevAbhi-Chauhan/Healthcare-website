@@ -8,5 +8,8 @@ phases:
       - echo "Building website..."
   post_build:
     commands:
-      - echo "Uploading to S3..."
+      - echo "Uploading files to S3..."
       - aws s3 sync . s3://my-project-bucket-10015 --delete
+artifacts:
+  files:
+    - '**/*'

@@ -5,17 +5,10 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
+      - rm -rf node_modules package-lock.json  
       - npm install
+      - chmod -R +x node_modules/.bin  
 
   build:
     commands:
       - npm run build
-      - chmod +x node_modules/.bin/vite
-
-  post_build:
-    commands:
-      - aws s3 sync ./dist s3://healthcare-abhi --delete
-
-artifacts:
-  files:
-    - '**/*'

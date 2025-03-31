@@ -12,3 +12,8 @@ phases:
   build:
     commands:
       - npm run build
+  
+artifacts:
+  files:
+    - '**/*'
+  base-directory: dist  # Ensure your build output folder is correct
